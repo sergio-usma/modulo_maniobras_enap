@@ -7,6 +7,7 @@ let curFC = 0;                       // Flashcard actual
 let curQ = 0;                        // Pregunta actual
 
 const STORAGE_KEY = 'maritimeEthicsProgress';
+const DARK_MODE_KEY = 'darkMode';
 
 // Cargar datos al iniciar
 async function loadData() {
@@ -307,9 +308,45 @@ function loadProgress() {
     }
 }
 
+// ---------- DARK MODE ----------
+
+function initDarkMode() {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeIcon = document.getElementById('darkModeIcon');
+
+    if (!darkModeToggle || !darkModeIcon) return;
+
+    function applyDarkMode(isDark) {
+        if (isDark) {
+            document.body.classList.add('dark-mode');
+            darkModeIcon.classList.remove('bi-moon-fill');
+            darkModeIcon.classList.add('bi-sun-fill');
+        } else {
+            document.body.classList.remove('dark-mode');
+            darkModeIcon.classList.remove('bi-sun-fill');
+            darkModeIcon.classList.add('bi-moon-fill');
+        }
+        localStorage.setItem(DARK_MODE_KEY, isDark);
+    }
+
+    function toggleDarkMode() {
+        const isDark = !document.body.classList.contains('dark-mode');
+        applyDarkMode(isDark);
+    }
+
+    // Cargar preferencia guardada
+    const savedDarkMode = localStorage.getItem(DARK_MODE_KEY);
+    applyDarkMode(savedDarkMode === 'true');
+
+    darkModeToggle.addEventListener('click', toggleDarkMode);
+}
+
 // Exponer funciones globales
 window.markAsRead = markAsRead;
 window.changeFC = changeFC;
 window.nextQuestion = nextQuestion;
 
-window.onload = loadData;
+window.onload = function() {
+    loadData();
+    initDarkMode();
+};
