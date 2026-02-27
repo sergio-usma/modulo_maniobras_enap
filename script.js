@@ -308,7 +308,7 @@ function loadProgress() {
     }
 }
 
-// ---------- DARK MODE ----------
+// ---------- DARK MODE (opt-in, guarda preferencia) ----------
 
 function initDarkMode() {
     const darkModeToggle = document.getElementById('darkModeToggle');
@@ -334,7 +334,7 @@ function initDarkMode() {
         applyDarkMode(isDark);
     }
 
-    // Cargar preferencia guardada
+    // Cargar preferencia guardada (si no existe, se queda en modo claro)
     const savedDarkMode = localStorage.getItem(DARK_MODE_KEY);
     applyDarkMode(savedDarkMode === 'true');
 

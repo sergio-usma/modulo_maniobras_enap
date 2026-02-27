@@ -8,15 +8,15 @@
   --danger: #e53e3e;
 }
 
-/* MODO OSCURO: fondo profundo, texto blanco puro, acentos brillantes */
+/* MODO OSCURO: solo se activa cuando el usuario hace clic en el botón */
 .dark-mode {
-  --primary: #3b82f6;        /* azul brillante */
-  --secondary: #06b6d4;      /* cian */
-  --accent: #f97316;          /* naranja intenso */
-  --bg: #121212;              /* fondo casi negro */
-  --text: #ffffff;            /* texto blanco puro */
-  --success: #22c55e;         /* verde vivo */
-  --danger: #ef4444;           /* rojo vivo */
+  --primary: #3b82f6;
+  --secondary: #06b6d4;
+  --accent: #f97316;
+  --bg: #121212;
+  --text: #ffffff;
+  --success: #22c55e;
+  --danger: #ef4444;
 }
 
 body {
@@ -260,7 +260,7 @@ h4 {
 }
 
 .dark-mode .card-back {
-  background: #1f3a5f;  /* azul oscuro para contraste con texto blanco */
+  background: #1f3a5f;
   color: #ffffff;
   border-color: var(--accent);
 }
@@ -406,6 +406,12 @@ footer a:hover {
   color: #ffffff;
 }
 
+/* ----- QUIZ CARD (fondo oscuro en modo nocturno) ----- */
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
 .quiz-option {
   width: 100%;
   text-align: left;
@@ -429,7 +435,7 @@ footer a:hover {
 }
 
 .dark-mode .quiz-option.correct {
-  background: #0b3b1f;  /* verde oscuro */
+  background: #0b3b1f;
   border-color: #22c55e;
   color: #ffffff;
 }
@@ -440,7 +446,7 @@ footer a:hover {
 }
 
 .dark-mode .quiz-option.incorrect {
-  background: #4a1e1e;  /* rojo oscuro */
+  background: #4a1e1e;
   border-color: #ef4444;
   color: #ffffff;
 }
