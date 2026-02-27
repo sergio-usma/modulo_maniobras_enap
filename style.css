@@ -1,0 +1,442 @@
+:root {
+  --primary: #1a365d;
+  --secondary: #2b6cb0; /* azul de énfasis */
+  --accent: #ed8936;
+  --bg: #f0f4f8;
+  --text: #1a202c;
+  --success: #38a169;
+  --danger: #e53e3e;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Roboto, system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----- NAVBAR ----- */
+.navbar {
+  background-color: white !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  border-bottom: 2px solid var(--primary);
+}
+
+.logo-enap {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo-enap:hover {
+  transform: scale(1.05);
+}
+
+.badge-flag {
+  background-color: var(--primary);
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.4rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 #0f2a44;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.vr {
+  background-color: var(--primary);
+  width: 2px;
+  opacity: 0.15 !important;
+}
+
+/* ----- TÍTULO ----- */
+.titulo {
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.subtitulo {
+  text-align: center;
+}
+
+.table-custom-header {
+  background-color: var(--primary) !important;
+  color: white !important;
+  vertical-align: middle;
+}
+
+/* Opcional: un borde sutil del mismo color para la tabla */
+.table-custom-border {
+  border: 2px solid var(--primary);
+}
+
+th {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border: 2px solid var(--primary) !important;
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+h3 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h4 {
+  color: var(--primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ----- PESTAÑAS (énfasis en secundario) ----- */
+.nav-tabs .nav-link.active {
+  color: var(--secondary) !important;
+  border-color: var(--secondary) var(--secondary) #fff !important;
+  font-weight: 700;
+}
+.nav-tabs .nav-link {
+  color: #495057;
+}
+.nav-tabs .nav-link:hover {
+  color: var(--secondary);
+  border-color: transparent;
+}
+
+/* ----- FLIPCARD ----- */
+.card-flip-container {
+  perspective: 1400px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 520px;
+  height: 320px;
+  margin: 0 auto;
+  outline: none;
+}
+
+.card-flip-container:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 28px;
+}
+
+.card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  border-radius: 28px;
+}
+
+.card-flip-container.flipped .card-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: white;
+  border: 4px solid var(--primary);
+  box-shadow: 0 20px 30px -8px rgba(26, 54, 93, 0.3);
+}
+
+.card-front {
+  background: #ffffff;
+  color: var(--primary);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.card-front img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.card-back {
+  background: var(--primary);
+  color: white;
+  transform: rotateY(180deg);
+  font-size: 1.2rem;
+  font-weight: normal;
+  text-transform: none;
+  line-height: 1.4;
+  text-shadow: none;
+  border: 4px solid var(--accent);
+  overflow-y: auto;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.card-back.long-text {
+  font-size: 1rem;
+}
+
+/* ----- BOTONES ----- */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  padding: 0.6rem 2rem;
+  font-weight: 600;
+  border-radius: 40px;
+  box-shadow: 0 6px 0 #0f2a44;
+  transition: 0.08s linear;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #0f2a44;
+}
+
+.btn-primary:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #0f2a44;
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  font-weight: 600;
+  border-radius: 40px;
+  padding: 0.6rem 2rem;
+  box-shadow: 0 6px 0 #b15f1a;
+}
+
+.btn-accent:hover {
+  background-color: #dd7b1f;
+  border-color: #dd7b1f;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #b15f1a;
+}
+
+.btn-accent:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #b15f1a;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  transform: translateY(0);
+  box-shadow: 0 4px 0 #0f2a44;
+  pointer-events: none;
+  background-color: #a0aec0 !important;
+  border-color: #7f8ea0 !important;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ----- BARRA DE PROGRESO ----- */
+.progress-bar {
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+/* ----- FOOTER ----- */
+footer {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.5);
+  margin-top: auto;
+}
+
+.foot {
+  margin: 0;
+}
+
+footer a,
+footer a:active {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: var(--accent);
+}
+
+/* ----- ESTILOS ORIGINALES (adaptados) ----- */
+.read-status-icon {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+.status-pending {
+  color: #cbd5e0;
+}
+.status-completed {
+  color: var(--success);
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #ebf8ff;
+  color: var(--primary);
+}
+
+.quiz-option {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  background: white;
+  border-radius: 8px;
+}
+.quiz-option.correct {
+  background: #f0fff4;
+  border-color: var(--success);
+}
+.quiz-option.incorrect {
+  background: #fff5f5;
+  border-color: var(--danger);
+}
+.explanation-box {
+  display: none;
+  background: #ebf8ff;
+  border-left: 4px solid var(--secondary);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.explanation-box.incorrect {
+  background-color: #f8d7da;
+  border-left-color: var(--danger);
+  color: #721c24;
+}
+
+.progress-custom {
+  height: 12px;
+  border-radius: 6px;
+  background: #cbd5e0;
+}
+.progress-bar-custom {
+  background: var(--accent);
+  transition: width 0.5s;
+}
+
+.summary-item {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid var(--secondary);
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s;
+}
+.summary-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  border-left-width: 6px;
+}
+
+/* ----- RESPONSIVE (mejorado) ----- */
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .badge-flag {
+    display: none;
+  }
+
+  .text-secondary {
+    display: none;
+  }
+
+  .logo-enap {
+    height: 60px !important;
+  }
+  .vr {
+    display: none !important;
+  }
+  .badge-flag {
+    font-size: 0.9rem;
+    padding: 0.3rem 1rem;
+  }
+  .navbar .d-flex.flex-column span {
+    font-size: 0.85rem;
+  }
+  .navbar .fw-semibold {
+    font-size: 0.95rem !important;
+  }
+
+  /* Ajustes de lectura */
+  .accordion-body {
+    padding: 1rem;
+  }
+  .titulo {
+    font-size: 1.6rem;
+  }
+  .nav-tabs .nav-link {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+  .quiz-option {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+  .btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-flip-container {
+    height: 260px;
+  }
+  .card-back {
+    font-size: 1rem;
+  }
+  .card-back.long-text {
+    font-size: 0.9rem;
+  }
+  .logo-enap {
+    height: 60px !important;
+  }
+  .titulo {
+    font-size: 1.4rem;
+  }
+  .footer-note {
+    font-size: 0.8rem;
+    padding: 0.3rem 1rem;
+  }
+}
